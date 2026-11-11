@@ -3,243 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahaf | Data Science |Data analytics & AI & Data managment. Portfolio</title>
+<title>Rahaf | Data Science & Analytics Portfolio</title>
+<!-- مكتبة الأيقونات FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  scroll-behavior: smooth; 
+}
 
 body {
-  background:#0b0811;
-  color:#fff;
-  font-family:Arial, sans-serif;
+  background: #0b0811;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 nav {
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:20px 9%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(11,8,17,.9);
-  border-bottom:1px solid #30213d;
-  z-index:10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(11, 8, 17, 0.95);
+  border-bottom: 1px solid #30213d;
+  z-index: 100;
+  backdrop-filter: blur(8px);
 }
 
-.logo { color:#bd73ff; font-weight:bold; font-size:20px; }
+.logo { color: #bd73ff; font-weight: bold; font-size: 22px; letter-spacing: 1px; }
 
-nav a {
-  color:#ccc;
-  text-decoration:none;
-  margin-left:22px;
-  font-size:14px;
+nav div a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-nav a:hover { color:#bd73ff; }
+nav div a:hover { color: #bd73ff; }
 
-.hero {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:100px 20px 50px;
-  background:radial-gradient(ellipse at center,#281039 0%,#0b0811 65%);
+/* قسم الهيدر والنبذة التعريفية */
+.hero-section {
+  max-width: 900px;
+  margin: 140px auto 60px;
+  padding: 0 20px;
 }
 
-.hero h1 {
-  font-size:clamp(48px,9vw,100px);
-  line-height:1.15;
-  background:linear-gradient(90deg,#d9a7ff,#a33cff);
-  -webkit-background-clip:text;
-  color:transparent;
+.hero-card {
+  background: #17101f;
+  border: 1px solid #382447;
+  border-radius: 20px;
+  padding: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.hero h2 {
-  color:#c28aff;
-  font-size:clamp(20px,4vw,30px);
-  margin-top:15px;
+.hero-content {
+  flex: 1;
 }
 
-.hero p {
-  color:#aaa;
-  margin-top:18px;
-  line-height:1.8;
+.hero-content h1 {
+  font-size: 32px;
+  color: #d9a7ff;
+  margin-bottom: 15px;
 }
 
-.btn {
-  display:inline-block;
-  margin-top:30px;
-  padding:13px 28px;
-  border-radius:30px;
-  background:#a54bea;
-  color:white;
-  text-decoration:none;
+.hero-content p {
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #23172f;
+  border: 1px solid #4a305e;
+  color: #d8b0ff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-pill:hover {
+  background: #a54bea;
+  color: white;
+  border-color: #a54bea;
+  transform: translateY(-2px);
+}
+
+.hero-img img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #bd73ff;
 }
 
 section {
-  padding:100px 10%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
 }
 
 .section-title {
-  color:#c28aff;
-  font-size:34px;
-  margin-bottom:30px;
+  color: #c28aff;
+  font-size: 26px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #382447;
+  padding-bottom: 8px;
 }
 
-.about p {
-  color:#bbb;
-  line-height:2;
-  max-width:750px;
+/* المهارات */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.skills {
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
+.skill-tag {
+  background: #1a1123;
+  border: 1px solid #70448e;
+  color: #d8b0ff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
-.skills span {
-  border:1px solid #70448e;
-  background:#1a1123;
-  color:#d8b0ff;
-  padding:13px 22px;
-  border-radius:25px;
+/* الخبرات والتعليم */
+.experience-card {
+  background: #17101f;
+  border: 1px solid #382447;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
 }
 
-.projects {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
+.experience-card h3 { color: #d2a0ff; font-size: 18px; }
+.experience-card .company { color: #a54bea; font-weight: 600; font-size: 14px; margin-top: 4px; margin-bottom: 12px; display: block; }
+.experience-card ul { list-style-type: disc; padding-left: 20px; color: #aaa; font-size: 14px; line-height: 1.7; }
+.experience-card ul li { margin-bottom: 6px; }
+
+/* المشاريع والشهادات */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .card {
-  background:#17101f;
-  border:1px solid #382447;
-  border-radius:15px;
-  padding:25px;
-  transition:.3s;
+  background: #17101f;
+  border: 1px solid #382447;
+  border-radius: 15px;
+  padding: 22px;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform:translateY(-7px);
-  border-color:#bd73ff;
+  transform: translateY(-5px);
+  border-color: #bd73ff;
 }
 
-.card h3 { color:#d2a0ff; margin-bottom:15px; }
-.card p { color:#aaa; line-height:1.7; }
-.card a { display:inline-block; color:#c28aff; margin-top:20px; text-decoration:none; }
-
-.contact p { color:#bbb; line-height:2; }
+.card h3 { color: #d2a0ff; margin-bottom: 10px; font-size: 17px; }
+.card p { color: #aaa; font-size: 13px; line-height: 1.6; margin-bottom: 15px; }
+.card a { color: #c28aff; text-decoration: none; font-size: 13px; font-weight: bold; display: inline-block; }
 
 footer {
-  text-align:center;
-  padding:30px;
-  border-top:1px solid #30213d;
-  color:#888;
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #30213d;
+  color: #888;
+  font-size: 13px;
+  margin-top: 40px;
 }
 
-@media(max-width:600px) {
-  nav { padding:17px 5%; }
-  nav a { margin-left:9px; font-size:12px; }
-  .logo { font-size:16px; }
-  section { padding:80px 7%; }
+@media(max-width: 768px) {
+  .hero-card { flex-direction: column-reverse; text-align: center; }
+  .hero-buttons { justify-content: center; }
+  nav { padding: 15px 5%; }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
   <div class="logo">RAHAF.</div>
   <div>
-    <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#certificates">Certificates</a>
   </div>
 </nav>
 
-<header class="hero" id="home">
-  <h1>Hi, I'm Rahaf</h1>
-  <h2>Data Analyst | AI Enthusiast</h2>
-  <p>
-    Turning raw data into meaningful insights.<br>
-    Exploring Data Analytics, Machine Learning and AI.
-  </p>
-  <a href="#projects" class="btn">Explore My Projects</a>
+<!-- قسم النبذة والتعريف الشخصي -->
+<header class="hero-section" id="about">
+  <div class="hero-card">
+    <div class="hero-content">
+      <h1>Hi, I'm Rahaf 👋</h1>
+      <p>
+        Data Science graduate focused on transforming raw data into meaningful insights that drive better decisions[cite: 8]. 
+        Experienced in data preparation, exploratory analysis, and interactive data visualization using Python, SQL, Excel, and Power BI[cite: 8].
+      </p>
+      <div class="hero-buttons">
+        <!-- زر تحميل الـ Resume المحدث مطابقة لاسم الملف في GitHub -->
+        <a href="Resume.pdf" target="_blank" class="btn-pill"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
+        <!-- رابط GitHub -->
+        <a href="https://github.com/Rahaf-data" target="_blank" class="btn-pill"><i class="fa-brands fa-github"></i> GitHub</a>
+        <!-- رابط LinkedIn الصحيح -->
+        <a href="https://www.linkedin.com/in/rahaf-haitham-851516397/" target="_blank" class="btn-pill"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://avatars.githubusercontent.com/u/199321557?v=4" alt="Rahaf Profile">
+    </div>
+  </div>
 </header>
 
-<section class="about" id="about">
-  <h2 class="section-title">About Me</h2>
-  <p>
-    I am Rahaf, a data analytics enthusiast interested in
-    transforming data into actionable insights.
-    I enjoy solving problems, exploring patterns,
-    and building data-driven solutions using technology.
-  </p>
-</section>
-
+<!-- قسم المهارات -->
 <section id="skills">
-  <h2 class="section-title">My Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>SQL</span>
-    <span>Power BI</span>
-    <span>Excel</span>
-    <span>Data Analysis</span>
-    <span>Machine Learning</span>
-    <span>Pandas</span>
-    <span>Data Visualization</span>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-container">
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">SQL (SSMS)</span>
+    <span class="skill-tag">Power BI</span>
+    <span class="skill-tag">Excel & Pivot Tables</span>
+    <span class="skill-tag">Data Preprocessing</span>
+    <span class="skill-tag">Exploratory Data Analysis (EDA)</span>
+    <span class="skill-tag">Machine Learning</span>
+    <span class="skill-tag">Pandas & NumPy</span>
   </div>
 </section>
 
+<!-- قسم الخبرات العملية -->
+<section id="experience">
+  <h2 class="section-title">Professional Experience</h2>
+  
+  <div class="experience-card">
+    <h3>Data Analysis Co-op Trainee</h3>
+    <span class="company">Saudi Electricity Company (SEC)</span>
+    <ul>
+      <li>Analyzed smart meter data for 1,000+ users using Excel and Pivot Tables[cite: 4].</li>
+      <li>Improved reporting efficiency by 40% through automated dashboards[cite: 4].</li>
+      <li>Cleaned and processed datasets for accurate operational analysis[cite: 4].</li>
+    </ul>
+  </div>
+</section>
+
+<!-- قسم المشاريع -->
 <section id="projects">
   <h2 class="section-title">Featured Projects</h2>
-  <div class="projects">
-
+  <div class="grid-container">
+    
     <div class="card">
       <h3>HR Analytics Dashboard</h3>
-      <p>
-        An interactive Power BI dashboard designed
-        to analyze workforce data and support
-        HR decision-making.
-      </p>
-      <a href="https://github.com/Rahaf-data/HR-Dashboard-power-BI" target="_blank">View Project →</a>
+      <p>Interactive Power BI dashboard designed to analyze workforce data, monitor employee metrics, and support HR decision-making.</p>
+      <a href="https://github.com/Rahaf-data/HR-Dashboard-power-BI" target="_blank">View on GitHub →</a>
     </div>
 
     <div class="card">
       <h3>Plant Disease Classification</h3>
-      <p>
-        A machine learning project focused on
-        classifying plant diseases using image data.
-      </p>
-      <a href="https://github.com/Rahaf-data/plant-disease-classification" target="_blank">View Project →</a>
-    </div>
-
-    <div class="card">
-      <h3>Customer Churn Prediction</h3>
-      <p>
-        Predicting customer subscription cancellations
-        using data analysis and machine learning.
-      </p>
-      <span style="color:#bd73ff;display:inline-block;margin-top:20px;">In Progress</span>
+      <p>Machine learning project focused on classifying plant disease using image data and deep learning models with high accuracy.</p>
+      <a href="https://github.com/Rahaf-data/plant-disease-classification" target="_blank">View on GitHub →</a>
     </div>
 
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <h2 class="section-title">Let's Connect</h2>
-  <p>
-    Interested in data analytics, AI, and meaningful projects.
-    <br>
-    Find me on GitHub:
-    <a href="https://github.com/Rahaf-data" style="color:#c28aff">
-      github.com/Rahaf-data
-    </a>
-  </p>
+<!-- قسم الشهادات والدورات -->
+<section id="certificates">
+  <h2 class="section-title">Certificates & Courses</h2>
+  <div class="grid-container">
+    
+    <div class="card">
+      <h3>Data Analytics Essentials</h3>
+      <p>CISCO Certification</p>
+      <a href="https://github.com/Rahaf-data/courses-certification" target="_blank">View Repository →</a>
+    </div>
+
+    <div class="card">
+      <h3>Machine Learning & AI</h3>
+      <p>Training Course</p>
+      <a href="https://github.com/Rahaf-data/courses-certification" target="_blank">View Repository →</a>
+    </div>
+
+  </div>
 </section>
 
 <footer>
